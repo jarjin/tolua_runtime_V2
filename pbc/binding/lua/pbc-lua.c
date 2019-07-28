@@ -7,8 +7,11 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
+#ifdef __MAC_OS__
+#include <malloc/malloc.h>
+#else
 #include <malloc.h>
+#endif
 
 #ifndef _MSC_VER
 #include <stdbool.h>
