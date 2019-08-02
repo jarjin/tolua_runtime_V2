@@ -24,30 +24,37 @@ gcc -std=gnu99 -O2 -Wall -Wextra pb.o -c -o pb.c
 gcc -std=gnu99 -O2 -Wall -Wextra lpeg.o -c -o lpeg.c
 gcc -std=gnu99 -O2 -Wall -Wextra struct.o -c -o struct.c
 
-gcc -std=gnu99 -O2 -Wall -Wextra strbuf.o -c -o cjson/strbuf.c
-gcc -std=gnu99 -O2 -Wall -Wextra lua_cjson.o -c -o cjson/lua_cjson.c
-gcc -std=gnu99 -O2 -Wall -Wextra fpconv.o -c -o cjson/fpconv.c
+cd ./cjson
+gcc -std=gnu99 -O2 -Wall -Wextra strbuf.o -c -o strbuf.c
+gcc -std=gnu99 -O2 -Wall -Wextra lua_cjson.o -c -o lua_cjson.c
+gcc -std=gnu99 -O2 -Wall -Wextra fpconv.o -c -o fpconv.c
+cd ..
 
-gcc -std=gnu99 -O2 -Wall -Wextra auxiliar.o -c -o luasocket/auxiliar.c
-gcc -std=gnu99 -O2 -Wall -Wextra buffer.o -c -o luasocket/buffer.c
-gcc -std=gnu99 -O2 -Wall -Wextra except.o -c -o luasocket/except.c
-gcc -std=gnu99 -O2 -Wall -Wextra inet.o -c -o luasocket/inet.c
-gcc -std=gnu99 -O2 -Wall -Wextra io.o -c -o luasocket/io.c
-gcc -std=gnu99 -O2 -Wall -Wextra luasocket.o -c -o luasocket/luasocket.c
-gcc -std=gnu99 -O2 -Wall -Wextra mime.o -c -o luasocket/mime.c
-gcc -std=gnu99 -O2 -Wall -Wextra options.o -c -o luasocket/options.c
-gcc -std=gnu99 -O2 -Wall -Wextra select.o -c -o luasocket/select.c
-gcc -std=gnu99 -O2 -Wall -Wextra tcp.o -c -o luasocket/tcp.c
-gcc -std=gnu99 -O2 -Wall -Wextra timeout.o -c -o luasocket/timeout.c
-gcc -std=gnu99 -O2 -Wall -Wextra udp.o -c -o luasocket/udp.c
-gcc -std=gnu99 -O2 -Wall -Wextra usocket.o -c -o luasocket/usocket.c
+cd ./luasocket
+gcc -std=gnu99 -O2 -Wall -Wextra auxiliar.o -c -o auxiliar.c
+gcc -std=gnu99 -O2 -Wall -Wextra buffer.o -c -o buffer.c
+gcc -std=gnu99 -O2 -Wall -Wextra except.o -c -o except.c
+gcc -std=gnu99 -O2 -Wall -Wextra inet.o -c -o inet.c
+gcc -std=gnu99 -O2 -Wall -Wextra io.o -c -o io.c
+gcc -std=gnu99 -O2 -Wall -Wextra luasocket.o -c -o luasocket.c
+gcc -std=gnu99 -O2 -Wall -Wextra mime.o -c -o mime.c
+gcc -std=gnu99 -O2 -Wall -Wextra options.o -c -o options.c
+gcc -std=gnu99 -O2 -Wall -Wextra select.o -c -o select.c
+gcc -std=gnu99 -O2 -Wall -Wextra tcp.o -c -o tcp.c
+gcc -std=gnu99 -O2 -Wall -Wextra timeout.o -c -o timeout.c
+gcc -std=gnu99 -O2 -Wall -Wextra udp.o -c -o udp.c
+gcc -std=gnu99 -O2 -Wall -Wextra usocket.o -c -o usocket.c
+cd ..
 
-gcc -std=gnu99 -O2 -Wall -Wextra sproto.o -c -o sproto.new/sproto.c
-gcc -std=gnu99 -O2 -Wall -Wextra lsproto.o -c -o sproto.new/lsproto.c
-gcc -std=gnu99 -O2 -Wall -Wextra pbc-lua.o -c -o pbc/binding/lua/pbc-lua.c
+cd ./sproto.new
+gcc -std=gnu99 -O2 -Wall -Wextra sproto.o -c -o sproto.c
+gcc -std=gnu99 -O2 -Wall -Wextra lsproto.o -c -o lsproto.c
+gcc -std=gnu99 -O2 -Wall -Wextra pbc-lua.o -c -o pbc-lua.c
+cd ..
 
-gcc tolua.o int64.o uint64.o pb.o lpeg.o struct.o strbuf.o lua_cjson.o fpconv.o auxiliar.o buffer.o except.o inet.o io.o \
-	luasocket.o mime.o options.o select.o tcp.o timeout.o udp.o usocket.o sproto.o lsproto.o pbc-lua.o  \
+gcc tolua.o int64.o uint64.o pb.o lpeg.o struct.o cjson/strbuf.o cjson/lua_cjson.o cjson/fpconv.o luasocket/auxiliar.o luasocket/buffer.o luasocket/except.o luasocket/inet.o luasocket/io.o \
+	luasocket/luasocket.o luasocket/mime.o luasocket/options.o luasocket/select.o luasocket/tcp.o luasocket/timeout.o luasocket/udp.o luasocket/usocket.o \
+	sproto.new/sproto.o sproto.new/lsproto.o pbc/binding/lua/pbc-lua.o  \
 	-I./ \
 	-Iluajit-2.1/src \
 	-Iluasocket \
