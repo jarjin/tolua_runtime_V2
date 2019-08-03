@@ -1,4 +1,4 @@
-#!/bin/bash
+bin/bash
 
 mkdir -p linux/x86_64
 mkdir -p Plugins/linux/x86_64
@@ -16,7 +16,7 @@ cp build/libpbc.a ../linux/x86_64/libpbc.a
 
 cd ..
 
-gcc -m64 -O2 -std=gnu99 -shared \
+gcc -m64 -O2 -std=gnu99 -shared -fPIC \
  tolua.c \
  int64.c \
  uint64.c \
