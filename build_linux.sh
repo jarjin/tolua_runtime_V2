@@ -1,4 +1,4 @@
-bin/bash
+#bin/bash
 
 mkdir -p linux/x86_64
 mkdir -p Plugins/linux/x86_64
