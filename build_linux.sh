@@ -5,7 +5,7 @@ mkdir -p Plugins/linux/x86_64
 
 cd luajit-2.1
 make clean
-make BUILDMODE=static CC="gcc -m64 -O2" XCFLAGS=-DLUAJIT_ENABLE_GC64
+make BUILDMODE=static CC="gcc -m64 -O2" XCFLAGS=-DLUAJIT_ENABLE_GC64 CFLAGS=-"shared -fPIC"
 cp src/libluajit.a ../linux/x86_64/libluajit.a
 make clean
 
@@ -42,14 +42,13 @@ gcc -m64 -O2 -std=gnu99 -shared \
  sproto.new/sproto.c \
  sproto.new/lsproto.c \
  pbc/binding/lua/pbc-lua.c \
- -o Plugins/x86_64/tolua.so \
+ -o Plugins/linux/x86_64/tolua.so \
  -I./ \
  -Iluajit-2.1/src \
  -Iluasocket \
  -Isproto.new \
  -Ipbc \
  -Icjson \
- -lws2_32 \
  -Wl,--whole-archive \
  linux/x86_64/libluajit.a \
  linux/x86_64/libpbc.a \
